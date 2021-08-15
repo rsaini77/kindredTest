@@ -28,6 +28,20 @@ namespace BowlingCalcAPITest.Services
             Assert.Equal(20, game.Score());
         }
 
+        [Fact]
+        public void OneSpareTest()
+        {
+            RollSpare();
+            game.Roll(3);
+            Assert.Equal(16, game.Score());
+        }
+
+        private void RollSpare()
+        {
+            game.Roll(5);
+            game.Roll(5);
+        }
+
         private void RollMany(int rolls, int pins)
         {
             for (int i = 0; i < rolls; i++)
