@@ -19,7 +19,14 @@ namespace BowlingCalcAPI.Services
             int roll = 0;
             for (int frame = 0; frame < 10; frame++)
             {
-                if (IsSpare(roll))
+                if (IsStrike(roll))
+                {
+                    score += 10
+                        + StrikeBonus(roll);
+                    roll++;
+
+                }
+                else if (IsSpare(roll))
                 {
                     score += 10
                         + SpareBonus(roll);
@@ -37,6 +44,10 @@ namespace BowlingCalcAPI.Services
         {
             return rolls[roll] + rolls[roll + 1] == 10;
         }
+        private bool IsStrike(int roll)
+        {
+            return rolls[roll] == 10;
+        }
 
         private int SumOfBallsInFrame(int roll)
         {
@@ -45,6 +56,10 @@ namespace BowlingCalcAPI.Services
         private int SpareBonus(int roll)
         {
             return rolls[roll + 2];
+        }
+        private int StrikeBonus(int roll)
+        {
+            return rolls[roll + 1] + rolls[roll + 2];
         }
     }
 
