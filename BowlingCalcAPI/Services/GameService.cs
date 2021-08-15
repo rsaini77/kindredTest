@@ -1,14 +1,31 @@
-﻿using System;
+﻿using BowlingCalcAPI.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace BowlingCalcAPI.Services
 {
-    public class GameService
+    public class GameService : IGameService
     {
         private int currentRoll;
         private int[] rolls = new int[21];
+        public int CalculateScore(string[] pinsDowned)
+        {
+            var size = pinsDowned.Length;
+            for (int i = 0; i < size; i++)
+            {
+                var converted = ConvertToInt(pinsDowned[i]);
+                Roll(converted);
+            }
+            return Score();
+        }
+
+        private int ConvertToInt(string stringElement)
+        {
+            int nNumber = int.TryParse(stringElement, out nNumber) ? nNumber : throw new Exception("Bad data provided to the service");
+            return nNumber;
+        }
         public void Roll(int pins)
         {
             rolls[currentRoll++] = pins;

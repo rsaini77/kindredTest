@@ -7,5 +7,6 @@ namespace BowlingCalcAPI.Interfaces
 {
     public interface IGameService
     {
+        int CalculateScore(string[] pinsDowned);
     }
 }
