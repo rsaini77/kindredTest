@@ -21,6 +21,8 @@ namespace BowlingCalcAPITest.Services
             {
                 game.Roll(0);
             }
+
+            Assert.Equal(0, game.Score());
         }
     }
 }

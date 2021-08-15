@@ -11,6 +11,10 @@ namespace BowlingCalcAPI.Services
         {
             throw new System.NotImplementedException();
         }
+        public int Score()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 
 
