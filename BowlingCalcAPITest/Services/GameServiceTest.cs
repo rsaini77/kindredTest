@@ -17,23 +17,23 @@ namespace BowlingCalcAPITest.Services
         [Fact]
         public void GutterGameTest()
         {
-            for (int i = 0; i < 20; i++)
-            {
-                game.Roll(0);
-            }
-
+            RollMany(20, 0);
             Assert.Equal(0, game.Score());
         }
 
         [Fact]
         public void AllOnesTest()
         {
-            for (int i = 0; i < 20; i++)
-            {
-                game.Roll(1);
-            }
-
+            RollMany(20, 1);
             Assert.Equal(20, game.Score());
+        }
+
+        private void RollMany(int rolls, int pins)
+        {
+            for (int i = 0; i < rolls; i++)
+            {
+                game.Roll(pins);
+            }
         }
     }
 }
