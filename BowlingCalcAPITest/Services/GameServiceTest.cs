@@ -36,6 +36,27 @@ namespace BowlingCalcAPITest.Services
             Assert.Equal(16, game.Score());
         }
 
+        [Fact]
+        public void OneStrikeTest()
+        {
+            RollStrike();
+            game.Roll(3);
+            game.Roll(4);
+            RollMany(16, 0);
+            Assert.Equal(24, game.Score());
+        }
+        [Fact]
+        public void PerfectGameTest()
+        {
+            RollMany(12, 10);
+            Assert.Equal(300, game.Score());
+        }
+
+        private void RollStrike()
+        {
+            game.Roll(10);
+        }
+
         private void RollSpare()
         {
             game.Roll(5);
