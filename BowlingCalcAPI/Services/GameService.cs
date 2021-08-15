@@ -7,13 +7,14 @@ namespace BowlingCalcAPI.Services
 {
     public class GameService
     {
-        public void Roll(int p)
+        public int score;
+        public void Roll(int pins)
         {
-            throw new System.NotImplementedException();
+            score += pins;
         }
         public int Score()
         {
-            throw new System.NotImplementedException();
+            return score;
         }
     }
 
