@@ -17,7 +17,10 @@ namespace BowlingCalcAPITest.Services
         [Fact]
         public void GutterGameTest()
         {
-
+            for (int i = 0; i < 20; i++)
+            {
+                game.Roll(0);
+            }
         }
     }
 }

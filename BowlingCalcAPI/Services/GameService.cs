@@ -7,5 +7,11 @@ namespace BowlingCalcAPI.Services
 {
     public class GameService
     {
+        public void Roll(int p)
+        {
+            throw new System.NotImplementedException();
+        }
     }
+
+
 }
